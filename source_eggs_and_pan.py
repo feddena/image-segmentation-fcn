@@ -128,10 +128,15 @@ class EggsAndPansSource:
                     label = cv2.imread(label_file)
 
                     if image is None or label is None:
+                        print("WARN: skipping image " + image_file)
                         continue
 
-                    image = resize_with_padding(image, self.image_size)
-                    label = resize_with_padding(label, self.image_size)
+                    image = cv2.resize(resize_with_padding(image, self.image_size), self.image_size)
+                    label = cv2.resize(resize_with_padding(label, self.image_size), self.image_size)
+
+                    if image.shape != label.shape:
+                        print("WARN: skipping image due to unequal img shape and label shape for " + image_file)
+                        continue
 
                     label_bg = np.zeros([image.shape[0], image.shape[1]], dtype=bool)
                     label_list = []
