@@ -73,12 +73,12 @@ def resize_with_padding(image, size):
 
     print(resized.shape)
 
-    return cv2.copyMakeBorder(resized, 0, min(0, size[0] - h_res), 0, min(0,size[1] - w_res), cv2.BORDER_CONSTANT, value=[0, 0, 0])
+    return cv2.copyMakeBorder(resized, 0, size[0] - h_res, 0, 0, size[1] - w_res, cv2.BORDER_CONSTANT, value=[0, 0, 0])
 
 
 class EggsAndPansSource:
     def __init__(self):
-        self.image_size = (1280, 720)
+        self.image_size = (500, 500)
         self.num_classes = len(label_defs)
 
         self.label_colors = {i: np.array(l.color) for i, l \
