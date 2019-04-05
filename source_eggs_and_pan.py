@@ -47,8 +47,8 @@ class EggsAndPansSource:
         :param valid_fraction: what franction of the dataset should be used
                                as a validation sample
         """
-        train_root = data_dir + '../dataset_formatted/train'
-        validation_root = data_dir + '../dataset_formatted/validation'
+        train_root = data_dir + '/dataset_formatted/train'
+        validation_root = data_dir + '/dataset_formatted/validation'
 
         train_images = build_file_list(train_root)
         valid_images = build_file_list(validation_root)
