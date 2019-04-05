@@ -27,7 +27,7 @@ def build_file_list(path_to_folder):
     return file_list
 
 
-def image_resize(image, width = None, height = None, inter = cv2.INTER_AREA):
+def image_resize(image, width, height, inter = cv2.INTER_AREA):
     # initialize the dimensions of the image to be resized and
     # grab the image size
     dim = None
@@ -62,12 +62,12 @@ def image_resize(image, width = None, height = None, inter = cv2.INTER_AREA):
 def resize_with_padding(image, size):
     h, w = image.shape[:2]
     if h/size[0] == w/size[1]:
-        return image_resize(image, height=size[0])
+        return image_resize(image, None, size[0])
 
     if h/size[0] > w/size[1]:
-        resized = image_resize(image, height=size[1])
+        resized = image_resize(image, None, size[1])
     else:
-        resized = image_resize(image, width=size[0])
+        resized = image_resize(image, size[0], None)
 
     h_res, w_res = resized.shape[:2]
 
