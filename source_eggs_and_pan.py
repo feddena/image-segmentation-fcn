@@ -123,10 +123,14 @@ class EggsAndPansSource:
                     image_file = f[0]
                     label_file = f[1]
 
-                    image = resize_with_padding(cv2.imread(image_file), self.image_size)
-                    label = resize_with_padding(cv2.imread(label_file), self.image_size)
+                    image = cv2.imread(image_file)
+                    label = cv2.imread(label_file)
 
-                    image.shape()
+                    if image.empty() or label.empty():
+                        continue
+
+                    image = resize_with_padding(image, self.image_size)
+                    label = resize_with_padding(label, self.image_size)
 
                     label_bg = np.zeros([image.shape[0], image.shape[1]], dtype=bool)
                     label_list = []
