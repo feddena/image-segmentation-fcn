@@ -123,8 +123,8 @@ class EggsAndPansSource:
                     image_file = f[0]
                     label_file = f[1]
 
-                    image = cv2.resize_with_padding(cv2.imread(image_file), self.image_size)
-                    label = cv2.resize_with_padding(cv2.imread(label_file), self.image_size)
+                    image = resize_with_padding(cv2.imread(image_file), self.image_size)
+                    label = resize_with_padding(cv2.imread(label_file), self.image_size)
 
                     image.shape()
 
