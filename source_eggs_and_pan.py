@@ -29,7 +29,7 @@ def build_file_list(path_to_folder):
 
 class EggsAndPansSource:
     def __init__(self):
-        self.image_size = (512, 256)
+        self.image_size = (1280, 720)
         self.num_classes = len(label_defs)
 
         self.label_colors = {i: np.array(l.color) for i, l \
