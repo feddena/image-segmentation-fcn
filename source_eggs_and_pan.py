@@ -134,7 +134,7 @@ class EggsAndPansSource:
                     image = cv2.resize(resize_with_padding(image, self.image_size), self.image_size)
                     label = cv2.resize(resize_with_padding(label, self.image_size), self.image_size)
 
-                    if image.shape != label.shape:
+                    if image.shape != label.shape or image.shape != (self.image_size[0], self.image_size[1], 3):
                         print("WARN: skipping image due to unequal img shape and label shape for " + image_file)
                         continue
 
