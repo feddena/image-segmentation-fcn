@@ -20,7 +20,7 @@ label_defs = [
 
 
 def build_file_list(path_to_folder):
-    images_filenames = os.listdir(path_to_folder + '/images/*png')
+    images_filenames = os.listdir(path_to_folder + '/images/')
     file_list = []
     for image_name in images_filenames:
         file_list.append((path_to_folder + "/images/" + image_name, path_to_folder + "/masks/" + image_name))
