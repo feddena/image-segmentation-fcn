@@ -71,7 +71,7 @@ def resize_with_padding(image, size):
 
     h_res, w_res = resized.shape[:2]
 
-    return cv2.copyMakeBorder(resized, 0, min(0, size[0] - h_res), 0, size[1] - w_res, cv2.BORDER_CONSTANT, value=[0, 0, 0])
+    return cv2.copyMakeBorder(resized, 0, min(0, size[0] - h_res), 0, min(0,size[1] - w_res), cv2.BORDER_CONSTANT, value=[0, 0, 0])
 
 
 class EggsAndPansSource:
