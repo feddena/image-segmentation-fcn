@@ -126,7 +126,7 @@ class EggsAndPansSource:
                     image = cv2.imread(image_file)
                     label = cv2.imread(label_file)
 
-                    if image.empty() or label.empty():
+                    if image is None or label is None:
                         continue
 
                     image = resize_with_padding(image, self.image_size)
