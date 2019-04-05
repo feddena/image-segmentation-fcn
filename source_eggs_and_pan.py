@@ -71,8 +71,6 @@ def resize_with_padding(image, size):
 
     h_res, w_res = resized.shape[:2]
 
-    print(resized.shape)
-
     return cv2.copyMakeBorder(resized, 0, size[0] - h_res, 0, 0, size[1] - w_res, cv2.BORDER_CONSTANT, value=[0, 0, 0])
 
 
