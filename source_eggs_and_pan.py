@@ -26,6 +26,7 @@ def build_file_list(path_to_folder):
         file_list.append((path_to_folder + "/images/" + image_name, path_to_folder + "/masks/" + image_name))
     return file_list
 
+
 def image_resize(image, width = None, height = None, inter = cv2.INTER_AREA):
     # initialize the dimensions of the image to be resized and
     # grab the image size
@@ -70,7 +71,7 @@ def resize_with_padding(image, size):
 
     h_res, w_res = resized.shape[:2]
 
-    return cv2.copyMakeBorder(resized, 0, 0, w - w_res, h - h_res, cv2.BORDER_CONSTANT, value=[0, 0, 0])
+    return cv2.copyMakeBorder(resized, 0, size[0] - h_res, 0, size[1] - w_res, cv2.BORDER_CONSTANT, value=[0, 0, 0])
 
 
 class EggsAndPansSource:
